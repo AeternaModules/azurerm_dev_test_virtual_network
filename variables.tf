@@ -30,8 +30,8 @@ EOT
           transport_protocol = optional(string)
         }))
       }))
-      use_in_virtual_machine_creation = optional(string, "Allow")
-      use_public_ip_address           = optional(string, "Allow")
+      use_in_virtual_machine_creation = optional(string) # Default: "Allow"
+      use_public_ip_address           = optional(string) # Default: "Allow"
     }))
   }))
 }
