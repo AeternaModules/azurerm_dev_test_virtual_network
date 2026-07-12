@@ -1,3 +1,7 @@
+output "dev_test_virtual_networks_id" {
+  description = "Map of id values across all dev_test_virtual_networks, keyed the same as var.dev_test_virtual_networks"
+  value       = { for k, v in azurerm_dev_test_virtual_network.dev_test_virtual_networks : k => v.id }
+}
 output "dev_test_virtual_networks_description" {
   description = "Map of description values across all dev_test_virtual_networks, keyed the same as var.dev_test_virtual_networks"
   value       = { for k, v in azurerm_dev_test_virtual_network.dev_test_virtual_networks : k => v.description }
