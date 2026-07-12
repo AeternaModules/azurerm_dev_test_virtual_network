@@ -14,7 +14,7 @@ resource "azurerm_dev_test_virtual_network" "dev_test_virtual_networks" {
         for_each = subnet.value.shared_public_ip_address != null ? [subnet.value.shared_public_ip_address] : []
         content {
           dynamic "allowed_ports" {
-            for_each = shared_public_ip_address.value.allowed_ports != null ? [shared_public_ip_address.value.allowed_ports] : []
+            for_each = shared_public_ip_address.value.allowed_ports != null ? shared_public_ip_address.value.allowed_ports : []
             content {
               backend_port       = allowed_ports.value.backend_port
               transport_protocol = allowed_ports.value.transport_protocol
