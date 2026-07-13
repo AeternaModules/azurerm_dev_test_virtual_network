@@ -30,14 +30,16 @@ EOT
           transport_protocol = optional(string)
         })))
       }))
-      use_in_virtual_machine_creation = optional(string) # Default: "Allow"
-      use_public_ip_address           = optional(string) # Default: "Allow"
+      use_in_virtual_machine_creation = optional(string)
+      use_public_ip_address           = optional(string)
     }))
   }))
   # --- Unconfirmed validation candidates, derived from azurerm_dev_test_virtual_network's provider source ---
   # Not auto-enabled: either a bespoke provider validator we can't safely translate,
   # or a path that crosses a list-typed block (needs its own for_each wrapping).
   # Review, translate into a real validation{} block above, and delete once confirmed.
+  # path: name
+  #   source:    ValidateDevTestVirtualNetworkName: no recognizable `if ... { errors = append(...) }` pattern - read it by hand
   # path: lab_name
   #   source:    validate.DevTestLabName: no recognizable `if ... { errors = append(...) }` pattern - read it by hand
   # path: resource_group_name
