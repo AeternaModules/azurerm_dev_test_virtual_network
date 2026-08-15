@@ -20,7 +20,7 @@ output "dev_test_virtual_networks_resource_group_name" {
 }
 output "dev_test_virtual_networks_subnet" {
   description = "Map of subnet values across all dev_test_virtual_networks, keyed the same as var.dev_test_virtual_networks"
-  value       = { for k, v in azurerm_dev_test_virtual_network.dev_test_virtual_networks : k => v.subnet if v.subnet != null && length(v.subnet) > 0 }
+  value       = { for k, v in azurerm_dev_test_virtual_network.dev_test_virtual_networks : k => one(v.subnet) if v.subnet != null && length(v.subnet) > 0 }
 }
 output "dev_test_virtual_networks_tags" {
   description = "Map of tags values across all dev_test_virtual_networks, keyed the same as var.dev_test_virtual_networks"
